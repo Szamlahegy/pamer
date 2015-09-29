@@ -1,0 +1,2 @@
+# pamer
+Subscription package manager
