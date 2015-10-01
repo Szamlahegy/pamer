@@ -21,7 +21,3 @@ module Pamer
     end
   end
 end
-
-# csomi
-# 5
-# email :email

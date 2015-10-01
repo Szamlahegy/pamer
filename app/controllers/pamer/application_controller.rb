@@ -1,5 +1,6 @@
 module Pamer
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
     include Pundit
+    
   end
 end

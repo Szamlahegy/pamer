@@ -1,0 +1,26 @@
+hu:
+  activerecord:
+    models:
+      'pamer/package': Csomag
+      'pamer/item': Elem
+      'pamer/items_package': Csomagelem
+    attributes:
+      'pamer/package':
+        id: AZ
+        name: Név
+        repeatable: Ismétlődhet
+        expires: Lejár
+        updated_at: Frissítve
+        created_at: Létrehozva
+      'pamer/item':
+        id: AZ
+        name: Név
+        description: Leírás
+        code: Típus azonosító
+      'pamer/items_package':
+        id: AZ
+        quantity: Mennyiség
+        optional: Nem az alapcsomag része
+        repeatable: Meghosszabbítható
+        expires: Lejár
+        package: Csomag
