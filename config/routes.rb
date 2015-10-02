@@ -5,4 +5,6 @@ Pamer::Engine.routes.draw do
     resources :items_packages do
     end
   end
+
+  resources :orders
 end

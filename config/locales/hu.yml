@@ -4,6 +4,7 @@ hu:
       'pamer/package': Csomag
       'pamer/item': Elem
       'pamer/items_package': Csomagelem
+      'pamer/order': Rendelés
     attributes:
       'pamer/package':
         id: AZ
@@ -25,3 +26,5 @@ hu:
         repeatable: Meghosszabbítható
         expires: Lejár
         package: Csomag
+      'pamer/order':
+        id: AZ
