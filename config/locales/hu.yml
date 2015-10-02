@@ -10,6 +10,7 @@ hu:
         name: Név
         repeatable: Ismétlődhet
         expires: Lejár
+        description: Leírás
         updated_at: Frissítve
         created_at: Létrehozva
       'pamer/item':
