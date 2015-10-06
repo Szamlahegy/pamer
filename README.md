@@ -33,3 +33,17 @@ After you install Pamer you have to create the migration files.
 Run your migration with:
 
 `rake db:migrate`
+
+## Usage
+
+Check if the user can use the package:
+
+`Pamer::PamerPolicy.valid?(':teszt', User.last.id)`
+
+Decrement the available number of items with 1:
+
+`Pamer::PamerPolicy.decrement!('item_keyword', current_user.id)`
+
+Decrement the available number of items with n:
+
+`Pamer::PamerPolicy.decrement!('item_keyword', current_user.id, [n])`

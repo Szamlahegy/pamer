@@ -7,7 +7,7 @@ module Pamer
     has_many :actualvalues, dependent: :destroy
 
     validates :orderable_type, inclusion: {
-      in: %w(Pamer::Package Pamer::Item)
+      in: %w(Pamer::Package Pamer::ItemsPackage)
     }
 
     def global_orderable
