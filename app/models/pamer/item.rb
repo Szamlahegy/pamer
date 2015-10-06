@@ -6,9 +6,9 @@ module Pamer
 
     # Creates actualvalues after creating an order
     # Orderable must contain a code field
-    def create_actualvalues(order)
-      if items_package.count > 0
-        av = Pamer::Actualvalue.create!(value: items_package.count, order: order, code: items_package.item.code)
+    def create_actualvalues(orderrow)
+      if count > 0
+        av = Pamer::Actualvalue.create!(expires: expires, value: count, orderrow: orderrow, code: item.code)
       end
     end
 

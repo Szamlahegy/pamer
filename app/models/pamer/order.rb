@@ -1,13 +1,9 @@
 module Pamer
   class Order < ActiveRecord::Base
-    belongs_to :orderable, polymorphic: true
     belongs_to :user
-    has_many :actualvalues
+    has_many :orderrows, dependent: :destroy
 
-    after_save :create_actualvalues
+    accepts_nested_attributes_for :orderrows, reject_if: :all_blank, allow_destroy: true
 
-    def create_actualvalues
-      orderable.create_actualvalues(self) if orderable.class.method_defined?(:create_actualvalues)
-    end
   end
 end

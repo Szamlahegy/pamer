@@ -7,12 +7,22 @@ module Pamer
       @code = code
     end
 
-    def valid?
-      return Actualvalue.joins(:order).where('user_id = ?', @user.id).where('expires >= ?', Time.now).where('code = ?', @code).where('value > 0 OR value = -1 OR value = -2').exists?
+    def valid?(code, user_id, count = 0)
+      Pamer::Actualvalue.transaction do
+        Pamer::Order.joins(orderrows: :actualvalues).where(user_id: user_id).where('code = ?', code).where('pamer_actualvalues.expires >= ?', Time.now).where('pamer_actualvalues.value >= ?', count).select('pamer_actualvalues.id').pluck('pamer_actualvalues.id').present?
+      end
     end
 
-    def decrement!
-      return Actualvalue.joins(:order).where('user_id = ?', @user.id).where('expires >= ?', Time.now).where('code = ?', @code).take.try(:decrement!, :value)
+    def decrement!(code, user_id, count = 0)
+      Pamer::Actualvalue.transaction do
+        id = Pamer::Order.joins(orderrows: :actualvalues).where(user_id: user_id).where('code = ?', code).where('pamer_actualvalues.expires >= ?', Time.now).where('pamer_actualvalues.value >= ?', count).select('pamer_actualvalues.id').pluck('pamer_actualvalues.id').first
+        if id.nil?
+          return false
+        else
+          Actualvalue.find(id).value.decrement!
+          return true
+        end
+      end
     end
   end
 end

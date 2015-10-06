@@ -5,6 +5,8 @@ hu:
       'pamer/item': Elem
       'pamer/items_package': Csomagelem
       'pamer/order': Rendelés
+      'pamer/orderrow': Rendelés sor
+      'pamer/actualvalue': Jelenlegi érték
     attributes:
       'pamer/package':
         id: AZ
@@ -27,4 +29,8 @@ hu:
         expires: Lejár
         package: Csomag
       'pamer/order':
+        id: AZ
+      'pamer/orderrow':
+        id: AZ
+      'pamer/actualvalue':
         id: AZ
