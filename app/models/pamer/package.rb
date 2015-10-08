@@ -3,6 +3,7 @@ module Pamer
     has_many :items_packages
     has_many :items, through: :items_packages
     has_many :prices, as: :priceable
+    accepts_nested_attributes_for :prices, reject_if: :all_blank, allow_destroy: true
 
     # Creates actualvalues after creating an order
     # Orderable must contain a code field

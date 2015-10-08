@@ -12,6 +12,12 @@ module Pamer
       main_app_url_helper?(method) or super
     end
 
+    def currency_list
+      Money::Currency.table.inject([]) do |array, (id, currency)|
+        array << [ "#{currency[:name]} - #{currency[:iso_code]}", id ]
+      end.sort_by { |currency| currency.first }
+    end
+
     private
 
     def main_app_url_helper?(method)
