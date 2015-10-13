@@ -10,6 +10,7 @@ module Pamer
       in: %w(Pamer::Package Pamer::ItemsPackage)
     }
 
+    # delegate :name, to: :item
     def global_orderable
       self.orderable.to_global_id if self.orderable.present?
     end

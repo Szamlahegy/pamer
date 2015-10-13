@@ -24,5 +24,9 @@ module Pamer
         end
       end
     end
+
+    def my_packages(user)
+      user.orders.joins(:orderrows).where("orderable_type = 'Pamer::Package'").joins("left join pamer_packages on pamer_packages.id = pamer_orderrows.orderable_id").pluck('pamer_packages.id')
+    end
   end
 end

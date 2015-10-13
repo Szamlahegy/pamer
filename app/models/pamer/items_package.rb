@@ -6,6 +6,14 @@ module Pamer
 
     accepts_nested_attributes_for :item
 
+    def name
+      item.name
+    end
+
+    def description
+      item.description
+    end
+
     # Creates actualvalues after creating an order
     # Orderable must contain a code field
     def create_actualvalues(orderrow)

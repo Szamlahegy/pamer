@@ -15,6 +15,8 @@ hu:
         repeatable: Ismétlődhet
         expires: Lejár
         description: Leírás
+        changegroup: 'Csoportkód'
+        prices: 'Árak'
         updated_at: Frissítve
         created_at: Létrehozva
       'pamer/item':

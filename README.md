@@ -47,3 +47,7 @@ Decrement the available number of items with 1:
 Decrement the available number of items with n:
 
 `Pamer::PamerPolicy.decrement!('item_keyword', current_user.id, [n])`
+
+## TODO
+
+Changegroup - az egy csoportba tartozó csomagok közül egyszerre csak egy lehet megvásárolva

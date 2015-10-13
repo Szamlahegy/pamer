@@ -53,5 +53,8 @@ class CreatePackagesAndItems < ActiveRecord::Migration
       t.integer :order_id
       t.integer :value
     end
+
+    add_index :pamer_items, :code
+    add_index :pamer_actualvalues, :code
   end
 end
