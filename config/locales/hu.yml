@@ -13,7 +13,8 @@ hu:
         id: AZ
         name: Név
         repeatable: Ismétlődhet
-        expires: Lejár
+        expires_time: Lejárat
+        expires_unit: Lejárati egység
         description: Leírás
         changegroup: 'Csoportkód'
         prices: 'Árak'

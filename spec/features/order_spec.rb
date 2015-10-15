@@ -14,7 +14,7 @@ describe "create order" do
     order.count = 1
     order.state = 'start'
     order.orderable = tarhely990
-    order.expires = tarhely990.expires # TODO: ???
+    order.expires = tarhely990.expires
     # talán Time.now + package.expires(1.year.to_i)
 
     order.save!

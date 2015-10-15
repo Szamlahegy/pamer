@@ -1,6 +1,5 @@
 class CreatePackagesAndItems < ActiveRecord::Migration
   def change
-    # TODO: mértékegység
     create_table :pamer_packages do |t|
       t.string :name
       t.boolean :repeatable
