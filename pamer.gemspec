@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'factory_girl_rails'
   s.add_development_dependency 'guard-rspec'
   s.add_development_dependency 'byebug'
+  s.add_development_dependency 'enumerize'
 
   s.add_development_dependency 'sqlite3'
 

@@ -1,4 +1,5 @@
 require 'money-rails'
+require 'enumerize'
 # require 'pundit'
 
 module Pamer

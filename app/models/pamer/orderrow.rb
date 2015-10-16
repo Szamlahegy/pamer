@@ -3,6 +3,9 @@ module Pamer
   # Every orderrow belongs to an Order
   #
   class Orderrow < ActiveRecord::Base
+    extend Enumerize
+    extend ActiveModel::Naming
+
     belongs_to :orderable, polymorphic: true
 
     after_create :create_actualvalues
@@ -12,6 +15,8 @@ module Pamer
     validates :orderable_type, inclusion: {
       in: %w(Pamer::Package Pamer::ItemsPackage)
     }
+
+    enumerize :state, in: [:created, :payed, :error, :changed, :completed], i18n_scope: ['activerecord.attributes.pamer/orderrow', 'statuses']
 
     def global_orderable
       orderable.to_global_id if orderable.present?

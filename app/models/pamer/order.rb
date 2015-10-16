@@ -14,7 +14,25 @@ module Pamer
     def make_expired!
       Order.transaction do
         orderrows.find_each do |orderrow|
-          orderrow.expires = Time.now
+          orderrow.state = Pamer::Orderrow.state.changed
+          orderrow.save!
+        end
+      end
+    end
+
+    def price
+      sum = BigDecimal.new(0)
+      orderrows.each do |orderrow|
+        price = orderrow.orderable.prices.find_by_price_currency('HUF').price
+        sum = sum + price.amount
+      end
+      sum.to_f
+    end
+
+    def set_state(state)
+      Order.transaction do
+        orderrows.each do |orderrow|
+          orderrow.state = state
           orderrow.save!
         end
       end

@@ -36,6 +36,8 @@ hu:
         id: AZ
       'pamer/orderrow':
         id: AZ
+        statuses:
+          COMPLETED: 'Kész'
       'pamer/actualvalue':
         id: AZ
       'pamer/price':

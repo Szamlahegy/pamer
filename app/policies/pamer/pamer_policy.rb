@@ -35,6 +35,7 @@ module Pamer
         .where("orderable_type = 'Pamer::Package'")
         .joins('left join pamer_packages on pamer_packages.id = pamer_orderrows.orderable_id')
         .where('pamer_orderrows.expires is null or pamer_orderrows.expires > ?', Time.now)
+        .where('pamer_orderrows.state = ?', :completed)
     end
 
     def my_packages_ids(user)
@@ -52,6 +53,8 @@ module Pamer
       Pamer::Actualvalue
         .joins(:orderrow)
         .where('pamer_actualvalues.id IN (?)', my_actualvalues_ids(user, code, count))
+        .where('pamer_orderrows.expires is null or pamer_orderrows.expires > ?', Time.now)
+        .where('pamer_orderrows.state = ?', :completed)
     end
 
     def my_actualvalues_ids(user, code = nil, count = nil)
