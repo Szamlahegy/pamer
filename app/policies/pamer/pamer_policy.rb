@@ -54,7 +54,7 @@ module Pamer
         .joins(:orderrow)
         .where('pamer_actualvalues.id IN (?)', my_actualvalues_ids(user, code, count))
         .where('pamer_orderrows.expires is null or pamer_orderrows.expires > ?', Time.now)
-        .where('pamer_orderrows.state = ?', :completed)
+        .where('pamer_orderrows.state = ? or pamer_orderrows.state = ?', :completed, :changed)
     end
 
     def my_actualvalues_ids(user, code = nil, count = nil)
