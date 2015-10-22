@@ -16,7 +16,13 @@ module Pamer
       in: %w(Pamer::Package Pamer::ItemsPackage)
     }
 
-    enumerize :state, in: [:created, :payed, :error, :changed, :completed], i18n_scope: ['activerecord.attributes.pamer/orderrow', 'statuses']
+    enumerize :state, in: [
+      :created,
+      :payed,
+      :error,
+      :changed,
+      :completed
+    ], i18n_scope: ['activerecord.attributes.pamer/orderrow', 'statuses']
 
     def global_orderable
       orderable.to_global_id if orderable.present?

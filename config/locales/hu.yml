@@ -34,8 +34,21 @@ hu:
         package: Csomag
       'pamer/order':
         id: AZ
+        price: Ár
+        user: Felhasználó
+        user_id: Felhasználó
+        created_at: Létrehozva
       'pamer/orderrow':
         id: AZ
+        global_orderable: 'Megrendelés'
+        order_id: 'Megrendelés'
+        state: 'Állapot'
+        expires: 'Lejárat'
+        repeat: 'Ismétlés'
+        currency: 'Pénznem'
+        orderable_id: 'Rendelt AZ'
+        orderable_type: 'Rendelt típus'
+        count: 'Mennyiség'
         statuses:
           COMPLETED: 'Kész'
       'pamer/actualvalue':

@@ -10,6 +10,7 @@ module Pamer
     accepts_nested_attributes_for :prices,
                                   reject_if: :all_blank, allow_destroy: true
 
+    validates :name, presence: false
     validates :expires_time, numericality: {
       only_integer: true, greater_than: 0
     }
