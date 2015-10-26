@@ -15,7 +15,7 @@ module Pamer
       only_integer: true, greater_than: 0
     }
     validates :expires_unit, inclusion: {
-      in: %w('day', 'week', 'month', 'year')
+      in: %w(day week month year)
     }, presence: false
 
     def expires_calculated

@@ -49,10 +49,17 @@ hu:
         orderable_id: 'Rendelt AZ'
         orderable_type: 'Rendelt típus'
         count: 'Mennyiség'
+        created_at: 'Létrehozva'
+        updated_at: 'Módosítva'
         statuses:
           COMPLETED: 'Kész'
       'pamer/actualvalue':
         id: AZ
+        code: 'Kód'
+        value: 'Érték'
+        expires: 'Lejárat'
+        created_at: 'Létrehozva'
+        updated_at: 'Módosítva'
       'pamer/price':
         id: AZ
         price_cents: Összeg

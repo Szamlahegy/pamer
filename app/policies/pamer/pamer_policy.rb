@@ -5,19 +5,19 @@ module Pamer
   # @author Joe Blog <Joe.Blog@nowhere.com>
   #
   class PamerPolicy
-    def self.valid?(code, user_id, count = 0)
+    def valid?(code, user_id, count = 0)
       Pamer::Actualvalue.transaction do
         my_actualvalues(user_id, code, count).present?
       end
     end
 
-    def self.decrement!(code, user_id, decrement_count = 1, count = 0)
+    def decrement!(code, user_id, decrement_count = 1, count = 0)
       Pamer::Actualvalue.transaction do
-        id = my_actualvalues(user_id, code, count).first
-        if id.nil?
+        av = my_actualvalues(user_id, code, count).first
+        if av.nil?
           return false
         else
-          Actualvalue.find(id).decrement!(:value, decrement_count)
+          Actualvalue.find(av.id).decrement!(:value, decrement_count)
           return true
         end
       end
@@ -64,7 +64,7 @@ module Pamer
                .where('pamer_actualvalues.expires is null or pamer_actualvalues.expires >= ?', Time.now)
                .select('pamer_actualvalues.id')
       result = result.where('code = ?', code) if code
-      result = result.where('pamer_actualvalues.value >= ?', count) if count
+      result = result.where('pamer_actualvalues.value > ?', count) if count
       result.pluck('pamer_actualvalues.id')
     end
   end
