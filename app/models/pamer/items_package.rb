@@ -4,7 +4,7 @@ module Pamer
   #
   class ItemsPackage < ActiveRecord::Base
     belongs_to :package
-    belongs_to :item
+    belongs_to :item, dependent: :destroy
     has_many :actualvalues
 
     accepts_nested_attributes_for :item

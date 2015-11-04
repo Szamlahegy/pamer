@@ -3,8 +3,8 @@ module Pamer
   # User can buy a Package which contains Items through ItemsPackage
   #
   class Package < ActiveRecord::Base
-    has_many :items_packages
-    has_many :items, through: :items_packages
+    has_many :items_packages, dependent: :destroy
+    has_many :items, through: :items_packages, dependent: :destroy
     has_many :prices, as: :priceable
 
     accepts_nested_attributes_for :prices,
